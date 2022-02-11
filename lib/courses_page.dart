@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import 'courses_data.dart';
 import 'widgets.dart';
@@ -34,10 +35,16 @@ class CoursesPage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Column(
+          ResponsiveRowColumn(
+            rowMainAxisAlignment: MainAxisAlignment.center,
+            rowPadding: const EdgeInsets.all(30),
+            columnPadding: const EdgeInsets.all(30),
+            layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                ? ResponsiveRowColumnType.COLUMN
+                : ResponsiveRowColumnType.ROW,
             children: [
-              CourseTile(course: courses[0]),
-              CourseTile(course: courses[1]),
+              ResponsiveRowColumnItem(child: CourseTile(course: courses[0])),
+              ResponsiveRowColumnItem(child: CourseTile(course: courses[1])),
             ],
           ),
           const SizedBox(
