@@ -56,8 +56,10 @@ class CoursesPage extends StatelessWidget {
                 ? ResponsiveRowColumnType.COLUMN
                 : ResponsiveRowColumnType.ROW,
             children: [
-              ResponsiveRowColumnItem(child: CourseTile(course: courses[0])),
-              ResponsiveRowColumnItem(child: CourseTile(course: courses[1])),
+              ResponsiveRowColumnItem(
+                  rowFlex: 1, child: CourseTile(course: courses[0])),
+              ResponsiveRowColumnItem(
+                  rowFlex: 1, child: CourseTile(course: courses[1])),
             ],
           ),
           const SizedBox(
